@@ -14,8 +14,8 @@
 $(function () {	
 	var map = null;
 	var destMarker = null;
-	var lat = 37.771829;
-	var lng = -122.401681;
+	var lat = 44.40243;
+	var lng = 12.184967;
 	var latlng;
 	var cPosition = navigator.geolocation.getCurrentPosition(geoSuccess, geoFail, {timeout:3000, enableHighAccuracy:true});
 	
@@ -45,23 +45,9 @@ $(function () {
 		var dest = null;
 		var category = $(this).closest('div[data-role="page"][id]').attr('id');
 		var restName = $(this).parent('div').siblings('h2').text();
-		switch (category) {
-			case 'chisiamo':
-				dest = new google.maps.LatLng(lat + 0.002, lng + 0.002);
-				break;
-			case 'bbq':
-				dest = new google.maps.LatLng(lat + 0.001, lng - 0.002);
-				break;
-			case 'italian':
-				dest = new google.maps.LatLng(lat + 0.003, lng + 0.0015);
-				break;
-			case 'mexican':
-				dest = new google.maps.LatLng(lat - 0.002, lng - 0.002);
-				break;
-			case 'contatti':
-				dest = new google.maps.LatLng(lat - 0.001, lng - 0.003);
-				break;
-		}
+			
+		dest = new google.maps.LatLng(lat , lng);					
+		
 		if (destMarker == null) {
 			destMarker = new google.maps.Marker({ position: dest, map: map, icon: 'img/fork.png', title: restName }); 
 		} else {
